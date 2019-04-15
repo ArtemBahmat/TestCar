@@ -1,0 +1,19 @@
+<loader-spinner></loader-spinner>
+<p>
+Reports data
+</p>
+<mat-label>Select area: </mat-label>
+<mat-form-field>  
+  <mat-select [(value)]="selectedArea">
+    <mat-option *ngFor="let area of areas" [value]="area.id">
+      {{area.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button mat-button (click)="getReports()">Get Reports</button>
+
+<div>
+  <app-car-grid *ngIf="isDisplayCars" [reports]='reports'>
+  </app-car-grid>
+</div>

@@ -1,0 +1,39 @@
+<div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="garage">
+      <th mat-header-cell *matHeaderCellDef> Garage </th>
+      <td mat-cell *matCellDef="let element"> {{element.garageId}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Car Category </th>
+      <td mat-cell *matCellDef="let element"> {{element.categoryId}} </td>
+    </ng-container>
+      
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    <!-- Group header -->
+    <ng-container matColumnDef="groupHeader">
+      <td colspan="999" mat-cell *matCellDef="let groupBy"><strong>Report time period: {{groupBy.period}}</strong></td>
+    </ng-container>
+      
+    <tr mat-row *matRowDef="let row; columns: ['groupHeader']; when: isGroup"> </tr>
+  
+  </table>
+</div>
