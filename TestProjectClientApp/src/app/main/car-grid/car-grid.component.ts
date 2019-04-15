@@ -18,7 +18,7 @@ export class CarGridComponent implements OnInit {
   set reports(value: CarModel[]) {
     this._reports = value;
     if (this._reports) {
-      this.bindDataSource(true);
+      this.bindDataSource();
     }
   }
 
@@ -32,7 +32,7 @@ export class CarGridComponent implements OnInit {
     return item.isGroupBy;
   }
 
-  bindDataSource(withNew: boolean) {
+  bindDataSource() {
     this.dataSource = new MatTableDataSource<CarModel | GroupBy>(this._reports);
   }
 }

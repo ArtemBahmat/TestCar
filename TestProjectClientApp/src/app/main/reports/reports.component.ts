@@ -26,6 +26,7 @@ export class ReportsComponent implements OnInit {
 
   getReports() {
     this._reportService.getCarReportsData(this.selectedArea).subscribe(data => {
+      this.reports = [];
       let ids = Object.keys(data);
       ids.forEach(period => {
         let reports = data[period];
